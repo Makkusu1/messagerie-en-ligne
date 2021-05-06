@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagerie</title>
+    <link rel="stylesheet" href="Messagerie/css/styles.css">
+    <script src="Messagerie/js/main.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- personal part -->
+    <section class="personalPart">
+        <div class="personalSettings">
+            <nav class="personalChoice">
+                <ul>
+                    <li class="personalIcon MessageIsYourChoice">
+                        <i class="far fa-comment-dots"></i>
+                    </li>
+                    <li class="personalIcon FriendsIsYourChoice">
+                        <i class="far fa-user"></i>
+                    </li>
+                    <li class="personalIcon ProfileIsYourChoice">
+                        <img class="profilePicture PictureIsYourChoice" src="https://picsum.photos/536/354">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="correspondentChoice">
+            <nav class="FriendsConversation">
+                <ul>
+                    <li>private messages : </li>
+                    <li class="MyFriends">
+                        <img class="profilePicture" src="https://picsum.photos/536/354">
+                        <p>Papa</p>
+                    </li>
+                    <li class="MyFriends">
+                        <img class="profilePicture" src="https://picsum.photos/536/354">
+                        <p>Maman</p>
+                    </li>
+                </ul>
+            </nav>
+            <div class="YourFriends">
+                <label for="LookForFriends" class="searchFriends">Ecrivez le tag de l'ami :</label>
+                <input type="text" id="LookForFriends" class="LookForFriends" placeholder="@FriendTag">
+            </div>
+            <div class="profil">
+                <div class="seeProfil">
+                <img class="profilePicture" src="https://picsum.photos/536/354">
+                <p class="pseudoprofil pseudoView">Makkusu</p>
+                <p class="pseudoprofil">@1234</p></div>
+                <label for="YourPP" class="PPlabel"><i class="fas fa-undo-alt"></i></label>
+                <input type="file" id="YourPP" class="YourPP" accept="image/*">
+                <div class="chooseYourPseudonyme">
+                <label for="YourPseudo" class="PseudoLabel">Change your Pseudonyme :</label>
+                <input type="text" id = "YourPseudo" class="YourPseudo">
+            </div>
+            </div>
+        </div>      
+    </section>
+    <!--message part  -->
+    <section class="messagePart">
+        <div class="seeTheMessages">
+        </div>
+        <div class="writeYourMessage">
+            <input class="YourMessage" type="text" placeholder="write a message to">
+        </div>
+
+    </section>
+    <script>
+        let url = 'ws://localhost:8082/ws'
+        
+        let socket = new WebSocket(url);
+        
+        // send message from the form
+document.querySelector(".YourMessage").addEventListener("keydown",(event)=>{
+    if(event.code == 'Enter'){
+        let outgoingMessage = document.querySelector(".YourMessage").value;
+        socket.send(outgoingMessage);
+        document.querySelector(".YourMessage").value =""
+    }
+})
+        
+        // handle incoming messages
+        socket.onmessage = function(event) {
+          let incomingMessage = event.data;
+          showMessage(incomingMessage);
+        };
+        
+        socket.onclose = event => console.log(`Closed ${event.code}`);
+        
+        // show message in div#messages
+        function showMessage(message) {
+          let messageElem = document.createElement('div');
+          messageElem.classList.add("hello")
+          let messageElemb = document.createElement('p');
+          messageElemb.textContent = message;
+          document.querySelector('.seeTheMessages').append(messageElem);
+          messageElem.prepend(messageElemb)
+        }
+        </script>
+</body>
+</html>

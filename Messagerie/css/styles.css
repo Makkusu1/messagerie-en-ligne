@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+:root{
+    font-size: 10px;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    display: flex;
+}
+/* personal part */
+section.personalPart {
+    display: flex;
+    width: 28%;
+    height: 100%;
+}
+div.personalSettings{
+    display: flex;
+    justify-content: center;
+    width:  20%;
+    height: 100%;
+    background-color: rgb(39, 39, 39);  
+}
+nav.personalChoice {
+    width: 100%;
+}
+nav.personalChoice ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+}
+li.personalIcon{
+    transition: 0.2s;
+    list-style: none;
+    font-size: 4rem;
+    color: white;
+    border-radius: 1rem;
+    width: 90%;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+li.personalIcon:hover {
+    background-color: rgb(104, 103, 103);
+}
+img.profilePicture{
+    width: 5rem ;
+    height: 5rem ;
+    border-radius: 2rem;
+}
+div.correspondentChoice {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    height: 100%;
+    background-color: rgb(70, 70, 70);
+}
+nav.FriendsConversation {
+    width: 100%;
+    display: none;
+}
+nav.FriendsConversation ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+nav.FriendsConversation ul li:first-child, label.searchFriends{
+    color: white;
+    font-size: 1.8rem;
+    font-family: 'Noto Sans JP';
+    list-style: none;
+    margin-top: 2rem;
+
+}
+li.MyFriends{
+    margin-top: 2rem;
+    list-style: none;
+    font-size: 2rem;
+    color: white;
+    font-family: 'Noto Sans JP';
+    width: 90%;
+    height: 4.5rem;
+    display: flex;
+    align-items: center;
+    padding: 0.4rem ;
+    justify-content: flex-start;
+    border-radius: 2rem;
+    transition: 0.2s;
+}
+li.MyFriends:hover{
+    background-color: rgb(104, 103, 103);
+}
+li.MyFriends img {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 1rem;
+}
+div.YourFriends {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+input.LookForFriends {
+    width: 95%;
+    height: 4rem;
+    border: none;
+    outline: none;
+    margin-top: 2rem;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: rgb(228, 228, 228);
+}
+div.profil{
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: 'Noto Sans JP';
+}
+div.seeProfil {
+    display: flex;
+    color: white;
+    width: 100%;
+    font-size: 2.5rem;
+    align-items: center;
+}
+div.seeProfil img {
+    width: 8rem;
+    height: 8rem;
+    margin: 0rem 1rem;
+    border-radius: 3rem;
+}
+.pseudoprofil{
+    font-size: 1.6rem;
+}
+div.profil label {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+}
+div.profil input {
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    font-size: 1.8rem;
+    margin-top: 1rem;
+}
+.PseudoLabel {
+    color: white;
+}
+.PPlabel {
+    background-color: rgba(202, 202, 202, 0.637);
+    border-radius: 1rem;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    position: absolute;
+    top:32%;
+    left: 6%;
+    color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fa-undo-alt{
+    font-size: 2rem;
+}
+.chooseYourPseudonyme{
+    width: 85%;
+}
+div.profil input[type=file]{
+display: none;
+}
+
+/* message part */
+section.messagePart{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 72%;
+}
+div.seeTheMessages{
+    width:100%;
+    height: 80%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+   align-items: flex-end;
+}
+div.hello {
+    width: 20rem;
+    height: 10rem;
+    background-color: lightblue;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    color: black;
+    font-family: 'Noto Sans JP';
+    margin: 3rem;
+
+}
+div.hello p {
+    margin: 1rem;
+}
+
+
+
+div.writeYourMessage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+    margin-top: 5rem;
+    height: 4rem;
+    background-color: lightgrey;
+    border-radius: 1rem;  
+    border: none;
+    outline: none;
+}
+input.YourMessage{
+    width:95%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0);
+}

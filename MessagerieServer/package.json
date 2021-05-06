@@ -1,0 +1,14 @@
+{
+  "name": "messagerie",
+  "version": "1.0.0",
+  "description": "J'en ai pas whala",
+  "main": "js/server.js",
+  "scripts": {
+    "test": "start"
+  },
+  "author": "Makkusu",
+  "license": "ISC",
+  "dependencies": {
+    "ws": "^7.4.5"
+  }
+}
